@@ -1,0 +1,19 @@
+import serial
+import time
+
+arduino = serial.Serial('COM3', 9600)
+time.sleep(2)
+
+while True:
+    user = input("Enter 1 for LED ON, 0 for LED OFF: ")
+
+    if user == '1':
+        arduino.write(b'1')
+        print("LED ON sent")
+
+    elif user == '0':
+        arduino.write(b'0')
+        print("LED OFF sent")
+
+    else:
+        print("Invalid input")
